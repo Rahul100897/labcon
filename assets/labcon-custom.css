@@ -230,57 +230,57 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 }
 
 /* ============================================================
-   SEARCH BAR (LABCON custom — input | category | icon btn)
+   SEARCH BAR — lc-search (input | collection | red icon btn)
    ============================================================ */
 .lc-search-form {
-  display: flex !important;
+  display: flex;
   align-items: stretch;
   height: 38px;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 2px;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
-  max-width: 480px;
+  max-width: 500px;
+  background: transparent;
+  position: relative;
 }
 
-/* Search text input */
-.lc-search-form .lc-search-input {
+/* Input */
+.lc-search-form .lc-sf__input {
   flex: 1 1 auto;
+  min-width: 0;
   background: transparent !important;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  color: rgba(255,255,255,0.75) !important;
+  border-radius: 0 !important;
+  color: rgba(255,255,255,0.8) !important;
   font-size: 12px !important;
   font-family: var(--lc-font) !important;
   letter-spacing: 0.03em;
   padding: 0 14px !important;
-  height: 100% !important;
-  min-width: 0;
+  height: 38px !important;
+  margin: 0 !important;
 }
-.lc-search-form .lc-search-input::placeholder {
-  color: rgba(255,255,255,0.28) !important;
-}
-.lc-search-form .lc-search-input:focus {
-  border: none !important;
-  box-shadow: none !important;
-}
+.lc-search-form .lc-sf__input::placeholder { color: rgba(255,255,255,0.3) !important; }
+.lc-search-form .lc-sf__input:focus { border: none !important; box-shadow: none !important; }
 
-/* Category dropdown zone */
-.lc-search-cat {
+/* Collection dropdown */
+.lc-sf__cat-wrap {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   border-left: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.04);
-  flex-shrink: 0;
+  height: 38px;
 }
-.lc-cat-select {
+.lc-sf__cat {
   appearance: none;
   -webkit-appearance: none;
   background: transparent;
   border: none;
   outline: none;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.55);
   font-size: 11px;
   font-weight: 600;
   font-family: var(--lc-font);
@@ -292,18 +292,15 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   background-repeat: no-repeat;
   background-position: right 10px center;
 }
-.lc-cat-select option {
-  background: #0e0e0d;
-  color: #e8e8e8;
-  font-size: 12px;
-}
-.lc-cat-select:focus { outline: none; }
+.lc-sf__cat option { background: #0e0e0d; color: #e8e8e8; }
+.lc-sf__cat:focus { outline: none; }
 
-/* Red icon-only submit button */
-.lc-search-btn {
+/* Red icon-only button */
+.lc-sf__btn {
   flex-shrink: 0;
   width: 46px;
-  background: var(--lc-red) !important;
+  height: 38px;
+  background: var(--lc-red);
   border: none;
   cursor: pointer;
   display: flex;
@@ -311,36 +308,24 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   justify-content: center;
   transition: background 0.2s;
   padding: 0;
+  border-radius: 0;
 }
-.lc-search-btn:hover { background: var(--lc-red-dark) !important; }
-.lc-search-btn svg { display: block; }
+.lc-sf__btn:hover { background: var(--lc-red-dark); }
+.lc-sf__btn svg { display: block; flex-shrink: 0; }
 
-/* Kill Molla's default input-cat-right overrides */
-.lc-search-form.input-cat-right .search,
-.lc-search-form.input-cat-right input[type="text"] {
-  margin: 0 !important;
-  padding: 0 14px !important;
-  border-radius: 0 !important;
-  border: none !important;
-}
-.lc-search-form .button-search { display: none !important; }
-
-/* Autocomplete dropdown — keep it working */
+/* AJAX autocomplete dropdown */
 .lc-search-form .li--s-drop {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 999;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
 }
-
-/* Wrap the form's parent so dropdown positions correctly */
 .block-search { position: relative; }
 
-/* Mobile: collapse to icon on small screens */
+/* Mobile: hide collection select */
 @media (max-width: 991px) {
-  .lc-search-form { max-width: 100%; }
-  .lc-search-cat { display: none; }
+  .lc-sf__cat-wrap { display: none; }
 }
 
 /* ============================================================
