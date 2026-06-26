@@ -51,16 +51,16 @@
           </div>
           {%- endif -%}
           {%- if localization.available_languages.size > 1 -%}
-          <div class="labcon-lang d-none d-lg-block">
-            {%- form 'localization', id: 'HeaderLocaleForm' -%}
-              <select name="locale_code" onchange="this.form.submit()" class="labcon-lang__select" aria-label="Language">
-                {%- for language in localization.available_languages -%}
-                  <option value="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %}>{{ language.iso_code | upcase }}</option>
-                {%- endfor -%}
-              </select>
-            {%- endform -%}
-          </div>
-          {%- endif -%}
+<div class="labcon-lang d-none d-lg-block">
+  {%- form 'localization', id: 'HeaderLocaleForm' -%}
+    <select name="locale_code" onchange="this.form.submit()" class="labcon-lang__select" aria-label="Language">
+      {%- for language in localization.available_languages -%}
+        <option value="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %}>{{ language.iso_code | upcase }}</option>
+      {%- endfor -%}
+    </select>
+  {%- endform -%}
+</div>
+{%- endif -%}
           {%- if section.settings.use_cart-%}
           <div class="block-minicart">
             {%- render 'kt_mini-cart' -%}
