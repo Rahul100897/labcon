@@ -1,5 +1,8 @@
-{%- assign hero_bg = section.settings.background_image -%}
-{%- assign bg_url = hero_bg | img_url: 'master' | default: ('hero-bg.jpg' | asset_url) -%}
+{%- if section.settings.background_image -%}
+  {%- assign bg_url = section.settings.background_image | img_url: 'master' -%}
+{%- else -%}
+  {%- assign bg_url = 'hero-bg.jpg' | asset_url -%}
+{%- endif -%}
 
 <section
   class="labcon-hero"
