@@ -51,7 +51,7 @@
           </div>
           {%- endif -%}
           {%- if shop.published_locales.size > 1 -%}
-          <div class="labcon-lang d-none d-md-block">
+          <div class="labcon-lang d-none d-lg-block">
             {%- form 'localization', id: 'HeaderLocaleForm' -%}
               <select name="locale_code" onchange="this.form.submit()" class="labcon-lang__select" aria-label="Language">
                 {%- for locale in shop.published_locales -%}
