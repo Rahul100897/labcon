@@ -60,11 +60,7 @@
               </select>
             {%- endform -%}
           </div> {% endcomment %}
-                    <div class="labcon-lang" style="display:flex;align-items:center;margin-right:12px;gap:4px;">
-            <a href="/" class="labcon-lang__btn{% if request.locale.iso_code == 'en' %} is-active{% endif %}">EN</a>
-            <span style="color:rgba(255,255,255,0.2);font-size:11px;">|</span>
-            <a href="/ar" class="labcon-lang__btn{% if request.locale.iso_code == 'ar' %} is-active{% endif %}">AR</a>
-          </div>
+          
           {%- if section.settings.use_cart-%}
           <div class="block-minicart">
             {%- render 'kt_mini-cart' -%}
