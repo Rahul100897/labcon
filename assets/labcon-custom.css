@@ -160,7 +160,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 }
 
 .lc-heading {
-  font-size: clamp(26px, 3.5vw, 35px);
+  font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 700;
   line-height: 1.2;
   color: var(--lc-dark);
@@ -170,10 +170,10 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 .lc-heading--white { color: #ffffff; }
 
 .lc-subtext {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.75;
   color: var(--lc-grey-mid);
-  margin-top: 14px;
+  margin-top: 16px;
 }
 .lc-subtext--white { color: rgba(255,255,255,0.7); }
 
@@ -227,4 +227,33 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 @media (max-width: 576px) {
   .lc-section { padding: 56px 0; }
   .lc-section-sm { padding: 44px 0; }
+}
+
+/* ============================================================
+   LANGUAGE SELECTOR
+   ============================================================ */
+.labcon-lang {
+  margin-right: 10px;
+}
+.labcon-lang__select {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 2px;
+  color: #e8e8e8;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 5px 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--lc-font);
+}
+.labcon-lang__select option {
+  background: #0e0e0d;
+  color: #ffffff;
+}
+.labcon-lang__select:hover,
+.labcon-lang__select:focus {
+  border-color: var(--lc-red);
+  color: #ffffff;
 }
