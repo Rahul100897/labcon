@@ -50,6 +50,7 @@
             <a href="{%if settings.use_wishlist == 'nitro'%}{%if customer%}{{wishlist_page.url}}{%else%}{{routes.account_login_url}}{%endif%}{%else%}{{wishlist_page.url}}{%endif%}" class="icon-link"><div class="icon-count"><svg class="molla-svg-icon" viewBox="0 0 32 32"><use xlink:href="#icon-wishlist"></use></svg><span class="count wishlist-count">0</span></div><span>{{'products.wishlist.mini_title'|t}}</span></a>
           </div>
           {%- endif -%}
+          {%- if localization.available_languages.size > 1 -%}
           <div class="labcon-lang" style="display:flex;align-items:center;margin-right:12px;">
             {%- form 'localization', id: 'HeaderLocaleForm' -%}
               <select name="locale_code" onchange="this.form.submit()" class="labcon-lang__select" aria-label="Language">
@@ -59,6 +60,7 @@
               </select>
             {%- endform -%}
           </div>
+{%- endif -%}
           {%- if section.settings.use_cart-%}
           <div class="block-minicart">
             {%- render 'kt_mini-cart' -%}
