@@ -232,6 +232,32 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 /* ============================================================
    LANGUAGE SELECTOR
    ============================================================ */
+.labcon-lang {
+  margin-right: 10px;
+}
+.labcon-lang__select {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 2px;
+  color: #e8e8e8;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 5px 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--lc-font);
+}
+.labcon-lang__select option {
+  background: #0e0e0d;
+  color: #ffffff;
+}
+.labcon-lang__select:hover,
+.labcon-lang__select:focus {
+  border-color: var(--lc-red);
+  color: #ffffff;
+}
+
 .labcon-lang__btn {
   font-size: 12px;
   font-weight: 600;
