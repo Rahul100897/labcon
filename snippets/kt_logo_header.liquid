@@ -1,0 +1,14 @@
+<a class="logo labcon-logo-link d-inline-block" href="{{ routes.root_url }}" style="max-width:{{ settings.logo_max_width | default: 180 | times: 1.0 | divided_by: 10 }}rem; display:block;">
+  <img
+    src="{{ 'logo-primary-white.svg' | asset_url }}"
+    alt="{{ shop.name | escape }}"
+    width="{{ settings.logo_max_width | default: 180 }}"
+    class="labcon-logo"
+    loading="eager"
+  >
+  {%- if template.name == 'index' -%}
+    <h1 class="d-none">LABCON</h1>
+  {%- else -%}
+    <span class="d-none">LABCON</span>
+  {%- endif -%}
+</a>

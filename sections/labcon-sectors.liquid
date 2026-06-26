@@ -1,0 +1,175 @@
+<section class="labcon-sectors lc-section" style="background: #ffffff;">
+  <div class="container">
+
+    <div class="labcon-sectors__header">
+      <span class="lc-label">{{ section.settings.label | default: 'Who We Serve' }}</span>
+      <h2 class="lc-heading">{{ section.settings.heading | default: 'Supporting Laboratories Across Saudi Arabia' }}</h2>
+      <p class="lc-subtext" style="max-width:500px;">
+        {{ section.settings.subtext | default: 'LABCON serves a wide range of laboratory sectors with reliable product sourcing and responsive support.' }}
+      </p>
+    </div>
+
+    <div class="labcon-sectors__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'sector' -%}
+        <div class="labcon-sector-item" {{ block.shopify_attributes }}>
+          <div class="labcon-sector-item__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'government' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 22V10.5L12 3l9 7.5V22"/><path d="M9 22v-6h6v6"/><path d="M12 3v4"/></svg>
+              {%- when 'private' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2"/><path d="M12 12v4"/></svg>
+              {%- when 'hospital' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+              {%- when 'university' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10v11H2V10"/><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M12 17v5"/></svg>
+              {%- when 'industrial' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 20V9l6-4v4l6-4v4l6-4v15H2z"/></svg>
+              {%- when 'food' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+              {%- when 'research' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3v11a3 3 0 006 0V3"/><path d="M6 3h12"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+              {%- when 'quality' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/></svg>
+            {%- endcase -%}
+          </div>
+          <span class="labcon-sector-item__label">{{ block.settings.label }}</span>
+        </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.labcon-sectors__header {
+  margin-bottom: 48px;
+}
+
+.labcon-sectors__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.labcon-sector-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 28px 16px;
+  background: #f7f8f7;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.labcon-sector-item:hover {
+  border-color: #e53d1c;
+  box-shadow: 0 4px 16px rgba(229,61,28,0.08);
+}
+
+.labcon-sector-item__icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(229,61,28,0.06);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e53d1c;
+}
+.labcon-sector-item__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.labcon-sector-item__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0e0e0d;
+  line-height: 1.3;
+}
+
+@media (max-width: 992px) {
+  .labcon-sectors__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 576px) {
+  .labcon-sectors__grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+{% schema %}
+{
+  "name": "LABCON Sectors",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Who We Serve"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Supporting Laboratories Across Saudi Arabia"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "LABCON serves a wide range of laboratory sectors with reliable product sourcing and responsive support."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "sector",
+      "name": "Sector",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "government",  "label": "Government" },
+            { "value": "private",     "label": "Private Lab" },
+            { "value": "hospital",    "label": "Hospital / Medical" },
+            { "value": "university",  "label": "University / Research" },
+            { "value": "industrial",  "label": "Industrial" },
+            { "value": "food",        "label": "Food & Drug" },
+            { "value": "research",    "label": "Research Center" },
+            { "value": "quality",     "label": "Quality Control" }
+          ],
+          "default": "government"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Sector label",
+          "default": "Government Entity"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LABCON Sectors",
+      "blocks": [
+        { "type": "sector", "settings": { "icon": "government",  "label": "Government Entity" } },
+        { "type": "sector", "settings": { "icon": "private",     "label": "Private Laboratory" } },
+        { "type": "sector", "settings": { "icon": "hospital",    "label": "Hospital & Medical" } },
+        { "type": "sector", "settings": { "icon": "university",  "label": "University & Research" } },
+        { "type": "sector", "settings": { "icon": "industrial",  "label": "Industrial Facility" } },
+        { "type": "sector", "settings": { "icon": "food",        "label": "Food & Drug Testing" } },
+        { "type": "sector", "settings": { "icon": "research",    "label": "Research Center" } },
+        { "type": "sector", "settings": { "icon": "quality",     "label": "Quality Control Lab" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

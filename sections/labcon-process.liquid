@@ -1,0 +1,232 @@
+<section class="labcon-process lc-section" style="background: #0e0e0d;">
+  <div class="container">
+
+    <div class="labcon-process__header">
+      <span class="lc-label" style="color:#e53d1c;">{{ section.settings.label | default: 'How It Works' }}</span>
+      <h2 class="lc-heading lc-heading--white">{{ section.settings.heading | default: 'Request a Quote in Four Steps' }}</h2>
+    </div>
+
+    <div class="labcon-process__steps">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'step' -%}
+        <div class="labcon-step" {{ block.shopify_attributes }}>
+          <div class="labcon-step__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+          <div class="labcon-step__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'browse' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"/></svg>
+              {%- when 'add' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              {%- when 'submit' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+              {%- when 'respond' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/></svg>
+            {%- endcase -%}
+          </div>
+          <h3 class="labcon-step__title">{{ block.settings.title }}</h3>
+          <p class="labcon-step__text">{{ block.settings.text }}</p>
+        </div>
+        {%- if forloop.index < section.blocks.size -%}
+        <div class="labcon-step__connector" aria-hidden="true">
+          <svg viewBox="0 0 24 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 5h20M16 1l4 4-4 4"/></svg>
+        </div>
+        {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.labcon-process__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.labcon-process__header .lc-heading {
+  margin-top: 4px;
+}
+
+.labcon-process__steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.labcon-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.labcon-step__num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #e53d1c;
+  margin-bottom: 16px;
+}
+
+.labcon-step__icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(229,61,28,0.1);
+  border: 1.5px solid rgba(229,61,28,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e53d1c;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+.labcon-step__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.labcon-step__title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.labcon-step__text {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Arrow connector */
+.labcon-step__connector {
+  flex-shrink: 0;
+  padding-top: 48px;
+  color: rgba(229,61,28,0.35);
+}
+.labcon-step__connector svg {
+  width: 32px;
+  height: 14px;
+}
+
+@media (max-width: 768px) {
+  .labcon-process__steps {
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+  .labcon-step {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .labcon-step__icon { margin-bottom: 0; flex-shrink: 0; }
+  .labcon-step__connector {
+    padding: 0;
+    transform: rotate(90deg);
+    align-self: center;
+    margin: -4px 0;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "LABCON Quote Process",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "How It Works"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Request a Quote in Four Steps"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "browse",  "label": "Browse / Search" },
+            { "value": "add",     "label": "Add to List" },
+            { "value": "submit",  "label": "Submit" },
+            { "value": "respond", "label": "Respond / Message" }
+          ],
+          "default": "browse"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Browse Catalog"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step description",
+          "default": "Explore our full product portfolio by category."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LABCON Quote Process",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "icon": "browse",
+            "title": "Browse the Catalog",
+            "text": "Explore our full product portfolio by category or search by product name, SKU, or brand."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "icon": "add",
+            "title": "Add to Quote List",
+            "text": "Select the products you need and add them to your Quote List with the required quantities."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "icon": "submit",
+            "title": "Submit Request",
+            "text": "Enter your contact and organization details, then submit your quote request to LABCON."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "icon": "respond",
+            "title": "LABCON Responds",
+            "text": "Our team reviews your request and contacts you with availability, pricing, and lead time."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,330 @@
+<footer class="labcon-footer" role="contentinfo">
+  <div class="labcon-footer__main">
+    <div class="container">
+      <div class="labcon-footer__grid">
+
+        <!-- Col 1: Logo + tagline + description -->
+        <div class="labcon-footer__col labcon-footer__col--brand">
+          <a href="{{ routes.root_url }}" class="labcon-footer__logo-link" aria-label="{{ shop.name }}">
+            <img
+              src="{{ 'logo-primary-white.svg' | asset_url }}"
+              alt="{{ shop.name | escape }}"
+              width="160"
+              loading="lazy"
+              class="labcon-footer__logo"
+            >
+          </a>
+          <p class="labcon-footer__tagline">{{ section.settings.tagline | default: 'Reliable Solutions for Laboratory Support.' }}</p>
+          <p class="labcon-footer__desc">{{ section.settings.description | default: 'Saudi Arabia\'s trusted B2B supplier of laboratory products — from analytical and reference standards to everyday consumables.' }}</p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="labcon-footer__col">
+          <h3 class="labcon-footer__col-title">{{ section.settings.links_title | default: 'Quick Links' }}</h3>
+          <ul class="labcon-footer__links">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'link' -%}
+              <li {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.url }}" class="labcon-footer__link">{{ block.settings.label }}</a>
+              </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact -->
+        <div class="labcon-footer__col">
+          <h3 class="labcon-footer__col-title">{{ section.settings.contact_title | default: 'Contact' }}</h3>
+          <ul class="labcon-footer__contact-list">
+            {%- if section.settings.address != blank -%}
+            <li class="labcon-footer__contact-item">
+              <svg class="labcon-footer__contact-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2C6.69 2 4 4.69 4 8c0 5.25 6 10 6 10s6-4.75 6-10c0-3.31-2.69-6-6-6z"/><circle cx="10" cy="8" r="2"/></svg>
+              <span>{{ section.settings.address }}</span>
+            </li>
+            {%- endif -%}
+            {%- if section.settings.phone != blank -%}
+            <li class="labcon-footer__contact-item">
+              <svg class="labcon-footer__contact-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.05 12.7c-.35-.35-.82-.55-1.3-.55s-.95.2-1.3.55l-.97.97c-1.52-.8-2.78-2.06-3.58-3.58l.97-.97c.35-.35.55-.82.55-1.3s-.2-.95-.55-1.3L7.32 4.97C6.97 4.62 6.5 4.42 6 4.42s-.95.2-1.3.55l-.97.97C3.25 6.52 3 7.24 3 8c0 5 4 9 9 9 .76 0 1.48-.25 2.06-.73l.97-.97c.35-.35.55-.82.55-1.3s-.2-.95-.53-1.3z"/></svg>
+              <a href="tel:{{ section.settings.phone | remove: ' ' }}" class="labcon-footer__link">{{ section.settings.phone }}</a>
+            </li>
+            {%- endif -%}
+            {%- if section.settings.email != blank -%}
+            <li class="labcon-footer__contact-item">
+              <svg class="labcon-footer__contact-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/></svg>
+              <a href="mailto:{{ section.settings.email }}" class="labcon-footer__link">{{ section.settings.email }}</a>
+            </li>
+            {%- endif -%}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="labcon-footer__bottom">
+    <div class="container labcon-footer__bottom-inner">
+      <p class="labcon-footer__copy">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_suffix | default: 'All rights reserved.' }}
+      </p>
+      <p class="labcon-footer__legal">
+        {%- if section.settings.legal_text != blank -%}
+          {{ section.settings.legal_text }}
+        {%- else -%}
+          B2B Product Catalog &nbsp;·&nbsp; Saudi Arabia
+        {%- endif -%}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* ---- LABCON Footer (footer_08) ---- */
+.labcon-footer {
+  background-color: #0e0e0d;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--lc-font, 'Roboto', sans-serif);
+}
+
+.labcon-footer__main {
+  padding: 64px 0 48px;
+}
+
+.labcon-footer__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 56px;
+}
+
+/* Brand column */
+.labcon-footer__logo-link { display: inline-block; margin-bottom: 20px; }
+.labcon-footer__logo { width: 160px; height: auto; display: block; }
+
+.labcon-footer__tagline {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.labcon-footer__desc {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+  max-width: 300px;
+}
+
+/* Column titles */
+.labcon-footer__col-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Nav links */
+.labcon-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.labcon-footer__link {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.labcon-footer__link:hover {
+  color: #e53d1c;
+  text-decoration: none;
+}
+
+/* Contact list */
+.labcon-footer__contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.labcon-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+.labcon-footer__contact-icon {
+  width: 16px;
+  height: 16px;
+  color: #e53d1c;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Bottom bar */
+.labcon-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 20px 0;
+}
+
+.labcon-footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.labcon-footer__copy,
+.labcon-footer__legal {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .labcon-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .labcon-footer__col--brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .labcon-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .labcon-footer__col--brand { grid-column: auto; }
+  .labcon-footer__main { padding: 48px 0 36px; }
+  .labcon-footer__bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "LABCON Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Reliable Solutions for Laboratory Support."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Short description",
+      "default": "Saudi Arabia's trusted B2B supplier of laboratory products — from analytical and reference standards to everyday consumables."
+    },
+    {
+      "type": "header",
+      "content": "Links Column"
+    },
+    {
+      "type": "text",
+      "id": "links_title",
+      "label": "Links column title",
+      "default": "Quick Links"
+    },
+    {
+      "type": "header",
+      "content": "Contact Column"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact column title",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "Riyadh, Saudi Arabia"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+966 55 000 0000"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@labcon.sa"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_suffix",
+      "label": "After copyright year & shop name",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "text",
+      "id": "legal_text",
+      "label": "Right-side text",
+      "default": "B2B Product Catalog · Saudi Arabia"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Quick Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Home"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "link", "settings": { "label": "Home",                 "url": "/" } },
+      { "type": "link", "settings": { "label": "Product Catalog",      "url": "/collections/all" } },
+      { "type": "link", "settings": { "label": "LABCON at a Glance",   "url": "/pages/labcon-at-a-glance" } },
+      { "type": "link", "settings": { "label": "Contact",              "url": "/pages/contact" } }
+    ]
+  }
+}
+{% endschema %}
