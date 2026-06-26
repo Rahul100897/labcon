@@ -112,6 +112,9 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   display: none !important;
 }
 
+/* Offset content wrapper to account for extra collection dropdown in header */
+.headermb-content-wrapper.has_search-box { top: 20rem !important; }
+
 /* Mobile collection select — sits below the search bar */
 .lc-mb-search-wrap { position: relative; }
 .lc-mb-cat-wrap {
