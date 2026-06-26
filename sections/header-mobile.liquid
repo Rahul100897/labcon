@@ -8,9 +8,36 @@
   <span class="mobile-menu-close close-menu float-right"><i class="fkt-close"></i></span>
   <div class="w-100 float-left">
   {%- if section.settings.use_search -%}
-    <div class="block-search">
+    <div class="block-search lc-mb-search-wrap">
       {% render 'search-bar', search_style: "mobile" %}
+      <div class="lc-mb-cat-wrap">
+        <select id="lc-mb-cat" class="lc-mb-cat" aria-label="Filter by collection">
+          <option value="">All Collections</option>
+          {%- for collection in collections -%}
+            {%- unless collection.handle == 'frontpage' or collection.handle == 'all' -%}
+            <option value="{{ collection.handle }}">{{ collection.title }}</option>
+            {%- endunless -%}
+          {%- endfor -%}
+        </select>
+      </div>
     </div>
+    <script>
+      (function(){
+        var mbForm = document.querySelector('.mobile-search');
+        var mbCat  = document.getElementById('lc-mb-cat');
+        if (!mbForm || !mbCat) return;
+        mbForm.addEventListener('submit', function(e) {
+          var cat = mbCat.value;
+          var q   = mbForm.querySelector('input[name="q"]').value.trim();
+          if (cat) {
+            e.preventDefault();
+            window.location.href = q
+              ? '/collections/' + cat + '?q=' + encodeURIComponent(q)
+              : '/collections/' + cat;
+          }
+        });
+      })();
+    </script>
   {%- endif -%}
   </div>
   {%- if section.blocks.size > 0 -%}
@@ -31,7 +58,7 @@
   {%- endif -%}
 </div>
 <div class="headermb-content-wrapper{% if section.settings.use_search %} has_search-box{% endif %}">
-  <div class="" style="min-height: 100vh">
+  <div class="" style="min-height: 100dvh; min-height: 100svh;">
   {%- if section.blocks.size > 0 -%}
     <div class="tab-content tab-container">
       {%- for block in section.blocks -%}
