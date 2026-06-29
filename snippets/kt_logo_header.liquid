@@ -1,4 +1,4 @@
-<a class="logo labcon-logo-link d-inline-block" href="{{ routes.root_url }}" style="max-width:{{ settings.logo_max_width | default: 180 | times: 1.0 | divided_by: 10 }}rem; display:block;">
+{% comment %} <a class="logo labcon-logo-link d-inline-block" href="{{ routes.root_url }}" style="max-width:{{ settings.logo_max_width | default: 180 | times: 1.0 | divided_by: 10 }}rem; display:block;">
   {%- if settings.logo_image -%}
     <img
       src="{{ settings.logo_image | img_url: 'master' }}"
@@ -21,4 +21,4 @@
   {%- else -%}
     <span class="d-none">LABCON</span>
   {%- endif -%}
-</a>
+</a> {% endcomment %}
