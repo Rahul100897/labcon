@@ -9,13 +9,13 @@
  */
 {
   "current": {
-    "purchase_code": "",
+    "purchase_code": "d0304c00-66fe-4755-8e2f-9f966d83041c",
     "apple_touch_icon": "shopify://shop_images/apple-touch-icon.png",
     "favicon": "shopify://shop_images/favicon-1.png",
     "favicon_print": "safari-pinned-tab.svg",
     "body_logo_svg_code": "",
     "body_logo_svg": "",
-    "logo": "shopify://shop_images/logo_c1cc906b-de91-4cb3-840b-9c2dd7e81e2a.png",
+    "logo": "shopify://shop_images/labcon-logo-light.png",
     "logo_max_width": 125,
     "body_logo_mobile_svg": "",
     "logo_mobile": "shopify://shop_images/logo_c1cc906b-de91-4cb3-840b-9c2dd7e81e2a.png",
@@ -575,6 +575,7 @@
           "header_padding": "",
           "use_account": true,
           "use_compare": false,
+          "use_wishlist": false,
           "use_cart": true,
           "padding_size": 1.3,
           "main_linklist": "main-menu-1",
@@ -1671,6 +1672,56 @@
       "kt-dear-customers": {
         "type": "kt-dear-customers",
         "settings": {}
+      },
+      "footer_08": {
+        "type": "footer_08",
+        "blocks": {
+          "footer_08-0": {
+            "type": "link",
+            "settings": {
+              "label": "Home",
+              "url": "/"
+            }
+          },
+          "footer_08-1": {
+            "type": "link",
+            "settings": {
+              "label": "Product Catalog",
+              "url": "/collections/all"
+            }
+          },
+          "footer_08-2": {
+            "type": "link",
+            "settings": {
+              "label": "LABCON at a Glance",
+              "url": "/pages/labcon-at-a-glance"
+            }
+          },
+          "footer_08-3": {
+            "type": "link",
+            "settings": {
+              "label": "Contact",
+              "url": "/pages/contact"
+            }
+          }
+        },
+        "block_order": [
+          "footer_08-0",
+          "footer_08-1",
+          "footer_08-2",
+          "footer_08-3"
+        ],
+        "settings": {
+          "tagline": "Reliable Solutions for Laboratory Support.",
+          "description": "Saudi Arabia's trusted B2B supplier of laboratory products — from analytical and reference standards to everyday consumables.",
+          "links_title": "Quick Links",
+          "contact_title": "Contact",
+          "address": "Riyadh, Saudi Arabia",
+          "phone": "+966 55 000 0000",
+          "email": "info@labcon.sa",
+          "copyright_suffix": "All rights reserved.",
+          "legal_text": "B2B Product Catalog · Saudi Arabia"
+        }
       }
     },
     "content_for_index": []
