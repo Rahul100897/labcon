@@ -1,0 +1,382 @@
+<!-- labcon-glance.liquid -->
+
+<!-- ── Page Header ──────────────────────────────────── -->
+<section class="lc-page-header lc-page-header--dark">
+  <div class="container">
+    <span class="lc-label">Company Profile</span>
+    <h1 class="lc-page-header__title">LABCON at a Glance</h1>
+    <p class="lc-page-header__sub">A Saudi-based laboratory support specialist — reliable sourcing, practical product selection, and responsive service.</p>
+  </div>
+</section>
+
+<!-- ── Who We Are ───────────────────────────────────── -->
+<section class="lc-glance-who lc-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="lc-label">Who We Are</span>
+        <h2 class="lc-heading" style="margin-top:14px;">A Trusted Partner for Laboratory Support in Saudi Arabia</h2>
+        <p class="lc-subtext">LABCON is a Saudi-based company specialized in supplying laboratory support products and solutions for laboratories across governmental, private, academic, research, industrial, and quality control sectors.</p>
+        <p class="lc-subtext" style="margin-top:12px;">We focus on reliable sourcing, practical product selection, and responsive communication — ensuring that laboratories have access to the right products when they need them.</p>
+        <a href="/pages/contact" class="lc-btn lc-btn--outline-dark" style="margin-top:28px;">Contact LABCON</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="lc-glance-who__stats">
+          <div class="lc-glance-stat">
+            <span class="lc-glance-stat__num">12</span>
+            <span class="lc-glance-stat__label">Product Categories</span>
+          </div>
+          <div class="lc-glance-stat">
+            <span class="lc-glance-stat__num">2</span>
+            <span class="lc-glance-stat__label">Product Families</span>
+          </div>
+          <div class="lc-glance-stat">
+            <span class="lc-glance-stat__num">B2B</span>
+            <span class="lc-glance-stat__label">Focused Catalog</span>
+          </div>
+          <div class="lc-glance-stat">
+            <span class="lc-glance-stat__num">KSA</span>
+            <span class="lc-glance-stat__label">Saudi Arabia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What We Provide ──────────────────────────────── -->
+<section class="lc-glance-provide lc-section" style="background:var(--lc-off-white);">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lc-label" style="justify-content:center;">What We Provide</span>
+      <h2 class="lc-heading" style="margin-top:14px;">Our Product Portfolio</h2>
+      <p class="lc-subtext mx-auto" style="max-width:560px;">Organized into two main product families covering 12 technical categories for complete laboratory support.</p>
+    </div>
+
+    <!-- Family 1 -->
+    <div class="lc-glance-family">
+      <div class="lc-glance-family__header">
+        <span class="lc-glance-family__num">01</span>
+        <h3 class="lc-glance-family__title">Analytical & Reference Products</h3>
+      </div>
+      <div class="row g-3">
+        {%- assign analytical = "Referenceware|Reference Materials & Standards,Analyticalware|Chromatography Consumables,Bioware|Biological Products,Solvents & Reagents|High-Purity Solvents & Reagents" | split: "," -%}
+        {%- for item in analytical -%}
+          {%- assign parts = item | split: "|" -%}
+          <div class="col-sm-6 col-md-3">
+            <a href="/collections/{{ parts[0] | handleize }}" class="lc-glance-cat-card">
+              <span class="lc-glance-cat-card__name">{{ parts[0] }}</span>
+              <span class="lc-glance-cat-card__desc">{{ parts[1] }}</span>
+              <span class="lc-glance-cat-card__arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <!-- Family 2 -->
+    <div class="lc-glance-family" style="margin-top:40px;">
+      <div class="lc-glance-family__header">
+        <span class="lc-glance-family__num">02</span>
+        <h3 class="lc-glance-family__title">Laboratory Consumables</h3>
+      </div>
+      <div class="row g-3">
+        {%- assign consumables = "Filterware|Filtration Products,Plasticware|Plastic Laboratory Tools,Glassware|Lab Glass Tools,Volumetricware|Volumetric Measuring Tools,Sampleware|Sample Collection Products,Cultureware|Microbiology Culture,Safetyware|Lab Safety Supplies,Generalware|General Consumables" | split: "," -%}
+        {%- for item in consumables -%}
+          {%- assign parts = item | split: "|" -%}
+          <div class="col-sm-6 col-md-3">
+            <a href="/collections/{{ parts[0] | handleize }}" class="lc-glance-cat-card">
+              <span class="lc-glance-cat-card__name">{{ parts[0] }}</span>
+              <span class="lc-glance-cat-card__desc">{{ parts[1] }}</span>
+              <span class="lc-glance-cat-card__arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:40px;">
+      <a href="/collections/all" class="lc-btn lc-btn--red">Browse Full Product Catalog</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Our Focus ─────────────────────────────────────── -->
+<section class="lc-glance-focus lc-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="lc-label" style="justify-content:center;">Our Focus</span>
+      <h2 class="lc-heading" style="margin-top:14px;">What Sets Us Apart</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="lc-glance-focus-card">
+          <div class="lc-glance-focus-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="lc-glance-focus-card__title">Reliable Sourcing</h3>
+          <p class="lc-glance-focus-card__text">Products sourced from reputable manufacturers with consistent quality and availability for laboratory operations.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="lc-glance-focus-card">
+          <div class="lc-glance-focus-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="lc-glance-focus-card__title">Practical Selection</h3>
+          <p class="lc-glance-focus-card__text">Curated product portfolio focused on what laboratories actually need — covering analytical, reference, and consumable requirements.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="lc-glance-focus-card">
+          <div class="lc-glance-focus-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3 class="lc-glance-focus-card__title">Responsive Support</h3>
+          <p class="lc-glance-focus-card__text">Direct communication and responsive service for product inquiries, technical questions, and quote requests.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="lc-glance-focus-card">
+          <div class="lc-glance-focus-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
+          <h3 class="lc-glance-focus-card__title">Simplified Access</h3>
+          <p class="lc-glance-focus-card__text">A clean B2B catalog with a straightforward quote process — browse, add to Quote List, and submit your request in minutes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Why LABCON ────────────────────────────────────── -->
+<section class="lc-glance-why lc-section" style="background:var(--lc-dark);">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <span class="lc-label">Why LABCON</span>
+        <h2 class="lc-heading lc-heading--white" style="margin-top:14px;">The Right Laboratory Partner</h2>
+        <p class="lc-subtext lc-subtext--white" style="margin-top:16px;">Built specifically for governmental, private, industrial, academic, and research laboratories in Saudi Arabia.</p>
+        <a href="/pages/contact" class="lc-btn lc-btn--red" style="margin-top:32px;">Get in Touch</a>
+      </div>
+      <div class="col-lg-7">
+        <ul class="lc-glance-why__list">
+          <li class="lc-glance-why__item">
+            <span class="lc-glance-why__check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Laboratory-focused product portfolio across analytical, reference, and consumable categories</span>
+          </li>
+          <li class="lc-glance-why__item">
+            <span class="lc-glance-why__check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Professional B2B quote process — no online checkout, direct communication with LABCON</span>
+          </li>
+          <li class="lc-glance-why__item">
+            <span class="lc-glance-why__check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Technical and commercial support for product selection, specifications, and inquiries</span>
+          </li>
+          <li class="lc-glance-why__item">
+            <span class="lc-glance-why__check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Suitable for regular procurement orders as well as tender and project-based requirements</span>
+          </li>
+          <li class="lc-glance-why__item">
+            <span class="lc-glance-why__check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Serving governmental, private, hospital, university, industrial, and research laboratories</span>
+          </li>
+          <li class="lc-glance-why__item">
+            <span class="lc-glance-why__check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Based in Saudi Arabia with reliable local sourcing and responsive support</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────── -->
+<section class="lc-glance-cta lc-section-sm" style="background:var(--lc-grey-light);">
+  <div class="container text-center">
+    <h2 class="lc-heading" style="margin-bottom:14px;">Looking for a Specific Laboratory Product?</h2>
+    <p class="lc-subtext mx-auto" style="max-width:480px;">Explore the full product catalog or contact the LABCON team directly for assistance.</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap" style="margin-top:28px;">
+      <a href="/collections/all" class="lc-btn lc-btn--red">Explore Product Catalog</a>
+      <a href="/pages/contact" class="lc-btn lc-btn--outline-dark">Contact LABCON</a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Stats ───────────────────────────────────── */
+.lc-glance-who__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.lc-glance-stat {
+  background: #fff;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.lc-glance-stat__num {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--lc-red);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.lc-glance-stat__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lc-grey-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Product Families ────────────────────────── */
+.lc-glance-family__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.lc-glance-family__num {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--lc-red);
+  letter-spacing: 0.06em;
+}
+.lc-glance-family__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--lc-dark);
+  margin: 0;
+}
+.lc-glance-cat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  padding: 20px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  height: 100%;
+}
+.lc-glance-cat-card:hover {
+  border-color: var(--lc-red);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  text-decoration: none;
+}
+.lc-glance-cat-card__name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lc-dark);
+  display: block;
+}
+.lc-glance-cat-card__desc {
+  font-size: 12px;
+  color: var(--lc-grey-mid);
+  display: block;
+  line-height: 1.5;
+}
+.lc-glance-cat-card__arrow {
+  display: block;
+  color: var(--lc-red);
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.lc-glance-cat-card:hover .lc-glance-cat-card__arrow { opacity: 1; }
+
+/* ── Focus Cards ─────────────────────────────── */
+.lc-glance-focus-card {
+  padding: 32px 28px;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  height: 100%;
+  transition: border-color 0.2s;
+}
+.lc-glance-focus-card:hover { border-color: var(--lc-red); }
+.lc-glance-focus-card__icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(229,61,28,0.08);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lc-red);
+  margin-bottom: 20px;
+}
+.lc-glance-focus-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--lc-dark);
+  margin-bottom: 10px;
+}
+.lc-glance-focus-card__text {
+  font-size: 14px;
+  color: var(--lc-grey-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Why List ────────────────────────────────── */
+.lc-glance-why__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lc-glance-why__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+.lc-glance-why__check {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: rgba(229,61,28,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lc-red);
+  margin-top: 1px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "LABCON at a Glance",
+  "settings": [],
+  "presets": [{ "name": "LABCON at a Glance" }]
+}
+{% endschema %}

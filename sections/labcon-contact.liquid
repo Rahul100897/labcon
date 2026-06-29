@@ -1,0 +1,372 @@
+<!-- labcon-contact.liquid -->
+<section class="lc-page-header lc-page-header--dark">
+  <div class="container">
+    <span class="lc-label">Get in Touch</span>
+    <h1 class="lc-page-header__title">Contact LABCON</h1>
+    <p class="lc-page-header__sub">Reach out for product inquiries, quote requests, or any general information. Our team will respond promptly.</p>
+  </div>
+</section>
+
+<section class="lc-contact lc-section">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- ── Contact Form ─────────────────────────────── -->
+      <div class="col-lg-7">
+        <div class="lc-contact__form-wrap">
+          <h2 class="lc-contact__form-title">Send Us a Message</h2>
+
+          {%- form 'contact', id: 'lc-contact-form' -%}
+            {%- if form.posted_successfully? -%}
+            <div class="lc-contact__success">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#e53d1c" fill-opacity=".1"/><path d="M14 24l7 7 13-14" stroke="#e53d1c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3>Message Received</h3>
+              <p>Thank you for reaching out. The LABCON team will review your message and respond as soon as possible.</p>
+            </div>
+            {%- else -%}
+
+            {%- if form.errors -%}
+            <div class="lc-contact__error">
+              Please check the fields below and try again.
+            </div>
+            {%- endif -%}
+
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="lc-form-group">
+                  <label for="lc-contact-name">Full Name <span class="lc-form-required">*</span></label>
+                  <input type="text" id="lc-contact-name" name="contact[name]" required
+                    placeholder="Your full name"
+                    value="{{ form.name | escape }}"
+                    class="lc-form-input{% if form.errors contains 'name' %} has-error{% endif %}">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="lc-form-group">
+                  <label for="lc-contact-company">Company / Organization <span class="lc-form-required">*</span></label>
+                  <input type="text" id="lc-contact-company" name="contact[Company]" required
+                    placeholder="Your company name"
+                    class="lc-form-input">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="lc-form-group">
+                  <label for="lc-contact-email">Email Address <span class="lc-form-required">*</span></label>
+                  <input type="email" id="lc-contact-email" name="contact[email]" required
+                    placeholder="your@email.com"
+                    value="{{ form.email | escape }}"
+                    class="lc-form-input{% if form.errors contains 'email' %} has-error{% endif %}">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="lc-form-group">
+                  <label for="lc-contact-phone">Mobile Number <span class="lc-form-required">*</span></label>
+                  <input type="tel" id="lc-contact-phone" name="contact[Mobile]" required
+                    placeholder="+966 5X XXX XXXX"
+                    class="lc-form-input">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="lc-form-group">
+                  <label for="lc-contact-type">Inquiry Type</label>
+                  <select id="lc-contact-type" name="contact[Inquiry Type]" class="lc-form-select">
+                    <option value="">Select inquiry type</option>
+                    <option>Product Inquiry</option>
+                    <option>Quote Request</option>
+                    <option>Supplier Inquiry</option>
+                    <option>Partnership Inquiry</option>
+                    <option>Technical Support</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="lc-form-group">
+                  <label for="lc-contact-body">Message <span class="lc-form-required">*</span></label>
+                  <textarea id="lc-contact-body" name="contact[body]" required rows="6"
+                    placeholder="How can we help you?"
+                    class="lc-form-input lc-form-textarea{% if form.errors contains 'body' %} has-error{% endif %}">{{ form.body | escape }}</textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="lc-btn lc-btn--red lc-contact__submit">
+                  Send Message
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+
+      <!-- ── Contact Info ─────────────────────────────── -->
+      <div class="col-lg-5">
+        <div class="lc-contact__info">
+          <h2 class="lc-contact__info-title">Contact Information</h2>
+          <p class="lc-contact__info-intro">We are here to support your laboratory product needs. Contact us directly or use the form.</p>
+
+          <div class="lc-contact__info-list">
+
+            {%- if section.settings.email != blank -%}
+            <div class="lc-contact__info-item">
+              <div class="lc-contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="lc-contact__info-body">
+                <span class="lc-contact__info-label">Email</span>
+                <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+              </div>
+            </div>
+            {%- endif -%}
+
+            {%- if section.settings.phone != blank -%}
+            <div class="lc-contact__info-item">
+              <div class="lc-contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              </div>
+              <div class="lc-contact__info-body">
+                <span class="lc-contact__info-label">Phone / Mobile</span>
+                <a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a>
+              </div>
+            </div>
+            {%- endif -%}
+
+            {%- if section.settings.whatsapp != blank -%}
+            <div class="lc-contact__info-item">
+              <div class="lc-contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+              </div>
+              <div class="lc-contact__info-body">
+                <span class="lc-contact__info-label">WhatsApp</span>
+                <a href="https://wa.me/{{ section.settings.whatsapp | remove: '+' | remove: ' ' }}" target="_blank" rel="noopener">{{ section.settings.whatsapp }}</a>
+              </div>
+            </div>
+            {%- endif -%}
+
+            {%- if section.settings.location != blank -%}
+            <div class="lc-contact__info-item">
+              <div class="lc-contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="lc-contact__info-body">
+                <span class="lc-contact__info-label">Location</span>
+                <span>{{ section.settings.location }}</span>
+              </div>
+            </div>
+            {%- endif -%}
+
+            {%- if section.settings.hours != blank -%}
+            <div class="lc-contact__info-item">
+              <div class="lc-contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="lc-contact__info-body">
+                <span class="lc-contact__info-label">Working Hours</span>
+                <span>{{ section.settings.hours }}</span>
+              </div>
+            </div>
+            {%- endif -%}
+
+          </div>
+
+          <div class="lc-contact__note">
+            <p>For product inquiries or quote requests, you may also use the <a href="/pages/contact">Quote List</a> to add specific products and submit a detailed request directly.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Page Header ──────────────────────────────── */
+.lc-page-header--dark {
+  background: var(--lc-dark);
+  padding: 72px 0 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.lc-page-header--dark .lc-label { color: var(--lc-red); }
+.lc-page-header__title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  color: #fff;
+  margin: 10px 0 16px;
+  letter-spacing: -0.02em;
+}
+.lc-page-header__sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.55);
+  max-width: 540px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Form ─────────────────────────────────────── */
+.lc-contact__form-wrap {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 40px;
+}
+@media (max-width: 576px) {
+  .lc-contact__form-wrap { padding: 24px; }
+}
+.lc-contact__form-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--lc-dark);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+.lc-form-group { margin-bottom: 0; }
+.lc-form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lc-form-required { color: var(--lc-red); }
+.lc-form-input,
+.lc-form-select {
+  width: 100%;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--lc-dark);
+  font-family: var(--lc-font);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.lc-form-input:focus,
+.lc-form-select:focus { border-color: var(--lc-red); background: #fff; }
+.lc-form-input.has-error { border-color: #e53d1c; }
+.lc-form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.lc-form-textarea { resize: vertical; min-height: 140px; }
+.lc-contact__submit {
+  padding: 14px 36px;
+  font-size: 13px;
+  gap: 10px;
+}
+.lc-contact__error {
+  background: #fff0ee;
+  border: 1px solid #f8c5bd;
+  border-radius: 2px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #c0392b;
+  margin-bottom: 20px;
+}
+.lc-contact__success {
+  text-align: center;
+  padding: 48px 24px;
+}
+.lc-contact__success svg { margin-bottom: 20px; }
+.lc-contact__success h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--lc-dark);
+  margin-bottom: 12px;
+}
+.lc-contact__success p {
+  font-size: 15px;
+  color: var(--lc-grey-mid);
+  max-width: 360px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Contact Info ─────────────────────────────── */
+.lc-contact__info {
+  background: var(--lc-dark);
+  border-radius: 4px;
+  padding: 40px;
+  height: 100%;
+}
+@media (max-width: 576px) {
+  .lc-contact__info { padding: 28px; }
+}
+.lc-contact__info-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.lc-contact__info-intro {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.lc-contact__info-list { display: flex; flex-direction: column; gap: 24px; }
+.lc-contact__info-item { display: flex; align-items: flex-start; gap: 16px; }
+.lc-contact__info-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(229,61,28,0.12);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lc-red);
+}
+.lc-contact__info-body { display: flex; flex-direction: column; gap: 3px; padding-top: 4px; }
+.lc-contact__info-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.lc-contact__info-body a,
+.lc-contact__info-body span {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.lc-contact__info-body a:hover { color: var(--lc-red); text-decoration: none; }
+.lc-contact__note {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+}
+.lc-contact__note a { color: var(--lc-red); text-decoration: none; }
+.lc-contact__note a:hover { text-decoration: underline; }
+</style>
+
+{% schema %}
+{
+  "name": "LABCON Contact",
+  "settings": [
+    { "type": "header", "content": "Contact Details" },
+    { "type": "text", "id": "email", "label": "Email Address", "default": "info@labcon.com.sa" },
+    { "type": "text", "id": "phone", "label": "Phone / Mobile", "default": "+966 XX XXX XXXX" },
+    { "type": "text", "id": "whatsapp", "label": "WhatsApp Number (with country code)", "default": "+966 XX XXX XXXX" },
+    { "type": "text", "id": "location", "label": "Location", "default": "Riyadh, Saudi Arabia" },
+    { "type": "text", "id": "hours", "label": "Working Hours", "default": "Sunday – Thursday, 8:00 AM – 5:00 PM" }
+  ],
+  "presets": [{ "name": "LABCON Contact" }]
+}
+{% endschema %}
