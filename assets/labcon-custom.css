@@ -390,3 +390,29 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   color: #ffffff;
   text-decoration: none;
 }
+
+/* ============================================================
+   PAGE HEADER — shared by Contact, Glance, and inner pages
+   ============================================================ */
+.lc-page-header--dark {
+  background: var(--lc-dark);
+  padding: 72px 0 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.lc-page-header--dark .lc-label { color: var(--lc-red); }
+
+.lc-page-header__title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: #fff;
+  margin: 12px 0 18px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.lc-page-header__sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  max-width: 580px;
+  line-height: 1.7;
+  margin: 0;
+}
