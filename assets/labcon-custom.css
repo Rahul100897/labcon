@@ -512,86 +512,126 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 
 /* --- Product Card (B2B style) --- */
 
+/* Always show the CTA wrapper — Molla hides it by default and shows on hover */
+.collection-products .product-cta-wrapper {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: static !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
 /* Hide price on all collection cards */
 .collection-products .product-price,
 .collection-products .product-item-prices,
 .collection-products .price { display: none !important; }
 
-/* Vendor label */
+/* Card wrapper */
+.collection-products .product-default,
+.collection-products .grid-item > .product {
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 4px !important;
+  background: #fff !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  height: 100% !important;
+}
+.collection-products .product-default:hover,
+.collection-products .grid-item > .product:hover {
+  border-color: var(--lc-red) !important;
+  box-shadow: 0 4px 24px rgba(229,61,28,0.09) !important;
+}
+
+/* Image area */
+.collection-products .product-thumb {
+  border-bottom: 1px solid #f0f0f0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Card body */
+.collection-products .product-body {
+  padding: 14px 16px 0 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+/* Vendor badge */
 .lc-card-vendor {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--lc-red);
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  display: block;
 }
 
 /* Product name */
 .collection-products .product-name {
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
-  line-height: 1.35 !important;
-  margin-bottom: 4px !important;
+  line-height: 1.4 !important;
+  margin: 0 0 6px 0 !important;
+  flex-grow: 1;
 }
 .collection-products .product-name a {
   color: var(--lc-dark) !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .collection-products .product-name a:hover { color: var(--lc-red) !important; }
 
 /* SKU */
 .lc-card-sku {
-  font-size: 12px;
-  color: var(--lc-grey-mid);
-  margin-bottom: 12px;
-  font-family: 'Roboto Mono', monospace, var(--lc-font);
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
 }
 
-/* Request Quote button */
+/* Request Quote button — always visible */
+.collection-products .product-cta-wrapper { padding: 0 0 16px 0 !important; margin-top: auto !important; }
 .lc-quote-btn {
-  display: block;
-  width: 100%;
-  background: var(--lc-dark) !important;
-  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  width: 100% !important;
+  background: transparent !important;
+  color: var(--lc-dark) !important;
   font-size: 12px !important;
   font-weight: 700 !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
-  padding: 10px 16px !important;
+  padding: 9px 14px !important;
   border-radius: 2px !important;
-  border: none !important;
+  border: 1.5px solid var(--lc-dark) !important;
   text-decoration: none !important;
   text-align: center !important;
-  transition: background 0.2s !important;
+  transition: background 0.18s, color 0.18s, border-color 0.18s !important;
+}
+.lc-quote-btn::after {
+  content: '→';
+  font-size: 13px;
 }
 .lc-quote-btn:hover {
   background: var(--lc-red) !important;
   color: #fff !important;
+  border-color: var(--lc-red) !important;
   text-decoration: none !important;
-}
-
-/* Product card hover */
-.collection-products .product-default {
-  border: 1px solid #ebebeb;
-  border-radius: 3px;
-  background: #fff;
-  transition: box-shadow 0.2s, border-color 0.2s;
-  overflow: hidden;
-}
-.collection-products .product-default:hover {
-  border-color: var(--lc-red);
-  box-shadow: 0 4px 20px rgba(229,61,28,0.09);
-}
-.collection-products .product-body {
-  padding: 14px 16px 16px !important;
 }
 
 /* Hide non-B2B card elements */
 .collection-products .product-countdown,
 .collection-products .product-variants-wrapper,
 .collection-products .btn-compare,
-.collection-products .compare { display: none !important; }
+.collection-products .compare,
+.collection-products .clearfix { display: none !important; }
 
 /* Mobile: stack header count below title */
 @media (max-width: 576px) {
