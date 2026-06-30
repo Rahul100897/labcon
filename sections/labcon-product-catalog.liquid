@@ -1,0 +1,292 @@
+<style>
+  /* ============================================================
+     LABCON Product Catalog — Page-specific styles
+     ============================================================ */
+
+  /* --- Hero Header --- */
+  .lc-catalog-hero {
+    background: var(--lc-dark);
+    padding: 48px 0 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .lc-catalog-hero__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-family: var(--lc-font);
+  }
+  .lc-catalog-hero__subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+    max-width: 620px;
+    line-height: 1.65;
+    font-family: var(--lc-font);
+  }
+
+  /* --- Page body wrapper --- */
+  .lc-catalog-page {
+    background: #f7f8f7;
+    padding: 48px 0 64px;
+    font-family: var(--lc-font);
+  }
+
+  /* --- Section block (family) --- */
+  .lc-catalog-section {
+    margin-bottom: 52px;
+  }
+  .lc-catalog-section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* Section label (small red uppercase) */
+  .lc-catalog-section__label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--lc-red);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: var(--lc-font);
+  }
+
+  /* Section title */
+  .lc-catalog-section__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--lc-dark);
+    margin: 0 0 24px;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    font-family: var(--lc-font);
+  }
+
+  /* Divider under title */
+  .lc-catalog-section__title::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: var(--lc-red);
+    margin-top: 10px;
+  }
+
+  /* --- Card grid --- */
+  .lc-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  /* --- Category card --- */
+  .lc-catalog-card {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    padding: 28px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease, border-left 0.2s ease;
+    border-left: 4px solid transparent;
+    position: relative;
+  }
+  .lc-catalog-card:hover {
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    border-left-color: var(--lc-red);
+    text-decoration: none;
+  }
+  .lc-catalog-card__name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lc-dark);
+    margin: 0 0 8px;
+    line-height: 1.3;
+    font-family: var(--lc-font);
+  }
+  .lc-catalog-card__desc {
+    font-size: 13px;
+    color: #666666;
+    margin: 0;
+    line-height: 1.55;
+    flex: 1;
+    font-family: var(--lc-font);
+  }
+  .lc-catalog-card__cta {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--lc-red);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    font-family: var(--lc-font);
+    transition: color 0.15s;
+  }
+  .lc-catalog-card:hover .lc-catalog-card__cta {
+    color: var(--lc-red-dark);
+  }
+
+  /* --- CTA Strip --- */
+  .lc-catalog-cta {
+    background: var(--lc-dark);
+    padding: 44px 0;
+    text-align: center;
+  }
+  .lc-catalog-cta__text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 20px;
+    font-family: var(--lc-font);
+    letter-spacing: -0.01em;
+  }
+  .lc-catalog-cta__btn {
+    display: inline-block;
+    padding: 13px 32px;
+    background: var(--lc-red);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    font-family: var(--lc-font);
+    transition: background 0.2s ease;
+  }
+  .lc-catalog-cta__btn:hover {
+    background: var(--lc-red-dark);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 1024px) {
+    .lc-catalog-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .lc-catalog-hero__title { font-size: 26px; }
+    .lc-catalog-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .lc-catalog-card { padding: 20px; }
+  }
+  @media (max-width: 480px) {
+    .lc-catalog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{%- comment -%} ── Hero Header ── {%- endcomment -%}
+<div class="lc-catalog-hero">
+  <div class="container">
+    <h1 class="lc-catalog-hero__title">Product Catalog</h1>
+    <p class="lc-catalog-hero__subtitle">Browse our laboratory support product portfolio. Select products and submit a Quote Request.</p>
+  </div>
+</div>
+
+{%- comment -%} ── Page Body ── {%- endcomment -%}
+<div class="lc-catalog-page">
+  <div class="container">
+
+    {%- comment -%} ── Section 1: Analytical & Reference Products ── {%- endcomment -%}
+    <div class="lc-catalog-section">
+      <span class="lc-catalog-section__label">Product Family 01</span>
+      <h2 class="lc-catalog-section__title">Analytical &amp; Reference Products</h2>
+
+      <div class="lc-catalog-grid">
+        <a href="/collections/referenceware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Referenceware</p>
+          <p class="lc-catalog-card__desc">Reference Materials &amp; Standards</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/analyticalware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Analyticalware</p>
+          <p class="lc-catalog-card__desc">Chromatography Consumables</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/bioware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Bioware</p>
+          <p class="lc-catalog-card__desc">Biological Products</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/solvents-reagents" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Solvents &amp; Reagents</p>
+          <p class="lc-catalog-card__desc">High-Purity Solvents &amp; Reagents</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    {%- comment -%} ── Section 2: Laboratory Consumables ── {%- endcomment -%}
+    <div class="lc-catalog-section">
+      <span class="lc-catalog-section__label">Product Family 02</span>
+      <h2 class="lc-catalog-section__title">Laboratory Consumables</h2>
+
+      <div class="lc-catalog-grid">
+        <a href="/collections/filterware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Filterware</p>
+          <p class="lc-catalog-card__desc">Filtration Products</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/plasticware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Plasticware</p>
+          <p class="lc-catalog-card__desc">Plastic Lab Tools</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/glassware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Glassware</p>
+          <p class="lc-catalog-card__desc">Lab Glass Tools</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/volumetricware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Volumetricware</p>
+          <p class="lc-catalog-card__desc">Volumetric Tools</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/sampleware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Sampleware</p>
+          <p class="lc-catalog-card__desc">Sample Collection</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/cultureware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Cultureware</p>
+          <p class="lc-catalog-card__desc">Microbiology Culture</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/safetyware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Safetyware</p>
+          <p class="lc-catalog-card__desc">Lab Safety Supplies</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+        <a href="/collections/generalware" class="lc-catalog-card">
+          <p class="lc-catalog-card__name">Generalware</p>
+          <p class="lc-catalog-card__desc">General Consumables</p>
+          <span class="lc-catalog-card__cta">View Products &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{%- comment -%} ── CTA Strip ── {%- endcomment -%}
+<div class="lc-catalog-cta">
+  <div class="container">
+    <p class="lc-catalog-cta__text">Looking for a specific product?</p>
+    <a href="/pages/contact" class="lc-catalog-cta__btn">Contact LABCON</a>
+  </div>
+</div>
+
+{% schema %}
+{ "name": "LABCON Product Catalog" }
+{% endschema %}
