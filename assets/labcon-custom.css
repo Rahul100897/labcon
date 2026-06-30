@@ -874,6 +874,19 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   line-height: 1.5;
 }
 
+/* Documents block */
+.lc-pdp-docs { margin-top: 20px; border-top: 1px solid #e8e8e8; padding-top: 18px; }
+.lc-pdp-docs__list { display: flex; flex-direction: column; gap: 8px; }
+.lc-pdp-doc-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--lc-dark) !important;
+  text-decoration: none !important; padding: 7px 12px;
+  border: 1px solid #e0e0e0; border-radius: 3px; background: #fafafa;
+  transition: border-color 0.15s, color 0.15s;
+}
+.lc-pdp-doc-link:hover { border-color: var(--lc-red); color: var(--lc-red) !important; background: #fff; }
+.lc-pdp-doc-link svg { flex-shrink: 0; }
+
 /* Tabs below product — all disabled, collapse the space entirely */
 .tab-details-product { display: none !important; }
 

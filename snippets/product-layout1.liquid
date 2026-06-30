@@ -281,11 +281,19 @@
               assign mf_cert         = product.metafields.custom.certification.value
               assign mf_industry     = product.metafields.custom.industry.value
               assign mf_application  = product.metafields.custom.application.value
+              assign mf_method       = product.metafields.custom.method_technique.value
               assign mf_storage      = product.metafields.custom.storage_condition.value
               assign mf_lead         = product.metafields.custom.lead_time.value
+              assign mf_datasheet    = product.metafields.custom.datasheet.value
+              assign mf_certificate  = product.metafields.custom.certificate.value
+              assign mf_sds          = product.metafields.custom.safety_data_sheet.value
               assign has_meta = false
-              if mf_manufacturer or mf_grade or mf_cert or mf_industry or mf_application or mf_storage or mf_lead
+              if mf_manufacturer or mf_grade or mf_cert or mf_industry or mf_application or mf_method or mf_storage or mf_lead
                 assign has_meta = true
+              endif
+              assign has_docs = false
+              if mf_datasheet or mf_certificate or mf_sds
+                assign has_docs = true
               endif
             -%}
             {%- if has_meta -%}
@@ -307,6 +315,9 @@
                 {%- if mf_application -%}
                 <tr><th>Application</th><td>{{ mf_application }}</td></tr>
                 {%- endif -%}
+                {%- if mf_method -%}
+                <tr><th>Method / Technique</th><td>{{ mf_method }}</td></tr>
+                {%- endif -%}
                 {%- if mf_storage -%}
                 <tr><th>Storage</th><td>{{ mf_storage }}</td></tr>
                 {%- endif -%}
@@ -314,6 +325,33 @@
                 <tr><th>Lead Time</th><td>{{ mf_lead }}</td></tr>
                 {%- endif -%}
               </table>
+            </div>
+            {%- endif -%}
+
+            <!-- LABCON: Documents -->
+            {%- if has_docs -%}
+            <div class="lc-pdp-docs">
+              <h3 class="lc-pdp-meta__title">Documents</h3>
+              <div class="lc-pdp-docs__list">
+                {%- if mf_datasheet -%}
+                <a href="{{ mf_datasheet }}" target="_blank" rel="noopener" class="lc-pdp-doc-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Datasheet
+                </a>
+                {%- endif -%}
+                {%- if mf_certificate -%}
+                <a href="{{ mf_certificate }}" target="_blank" rel="noopener" class="lc-pdp-doc-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Certificate of Analysis
+                </a>
+                {%- endif -%}
+                {%- if mf_sds -%}
+                <a href="{{ mf_sds }}" target="_blank" rel="noopener" class="lc-pdp-doc-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Safety Data Sheet
+                </a>
+                {%- endif -%}
+              </div>
             </div>
             {%- endif -%}
 
