@@ -874,8 +874,11 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   line-height: 1.5;
 }
 
-/* Tabs below product */
-.tab-details-product { background: #fff; margin-top: 0 !important; }
+/* Tabs below product — all disabled, collapse the space entirely */
+.tab-details-product { display: none !important; }
+
+/* If tabs ever re-enabled, style them cleanly */
+.tab-details-product.has-tabs { display: block !important; background: #fff; margin-top: 0 !important; }
 .tab-details-product .nav-tabs .nav-link {
   font-size: 12px !important;
   font-weight: 700 !important;
@@ -930,9 +933,11 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   width: 100% !important;
 }
 
-/* Related products section */
+/* Related products section — title + bottom spacing */
 .kt_related-products .section-title,
 .kt_recently-viewed-products .section-title { font-size: 18px !important; font-weight: 700 !important; color: var(--lc-dark) !important; }
+.kt_related-products { padding-bottom: 56px !important; }
+.kt_recently-viewed-products { padding-bottom: 40px !important; }
 
 /* Hide sticky Add to Cart bar — not in B2B requirements */
 .psgl-sticky-bar,
