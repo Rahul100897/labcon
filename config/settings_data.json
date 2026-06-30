@@ -1727,5 +1727,10 @@
       }
     },
     "content_for_index": []
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".content_kt_related-products {padding-bottom: 56px;}"
+    ]
   }
 }
