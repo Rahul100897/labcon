@@ -93,9 +93,6 @@
       <div class="lc-card-vendor">{{ product.vendor }}</div>
       {%- endif -%}
       <h2 class="product-name"><a href="{{product.url | within: collection}}" tabindex="0">{{product.title}}</a></h2>
-      {%- if product.variants.first.sku != blank -%}
-      <div class="lc-card-sku">SKU: {{ product.variants.first.sku }}</div>
-      {%- endif -%}
       <div class="clearfix"></div>
       <div class="product-cta-wrapper">
         <a href="{{ product.url | within: collection }}" class="btn lc-quote-btn btn-block">View &amp; Request Quote</a>

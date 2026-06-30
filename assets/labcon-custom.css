@@ -592,13 +592,6 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 }
 .collection-products .product-name a:hover { color: var(--lc-red) !important; }
 
-/* SKU */
-.lc-card-sku {
-  font-size: 11px;
-  color: #999;
-  margin-bottom: 14px;
-  letter-spacing: 0.02em;
-}
 
 /* Request Quote button — always visible */
 .collection-products .product-cta-wrapper { padding: 0 0 16px 0 !important; margin-top: auto !important; }
