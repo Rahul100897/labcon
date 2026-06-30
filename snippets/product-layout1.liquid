@@ -43,11 +43,37 @@
   endif
 -%}
 
-<div class="border-top d-none d-lg-block" style="opacity: .3;"></div>
-<div class="{{settings.product_width_section}}">
+<!-- LABCON Product Header -->
+<div class="lc-pdp-header">
+  <div class="container">
+    <nav class="lc-coll-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="lc-coll-breadcrumb__sep" aria-hidden="true">›</span>
+      <a href="/collections/all">Products</a>
+      {%- assign pdp_coll = product.collections | first -%}
+      {%- if pdp_coll -%}
+        <span class="lc-coll-breadcrumb__sep" aria-hidden="true">›</span>
+        <a href="{{ pdp_coll.url }}">{{ pdp_coll.title }}</a>
+      {%- endif -%}
+      <span class="lc-coll-breadcrumb__sep" aria-hidden="true">›</span>
+      <span>{{ product.title | truncate: 60 }}</span>
+    </nav>
+    <div class="lc-pdp-header__body">
+      {%- if product.vendor != blank -%}
+        <span class="lc-pdp-header__vendor">{{ product.vendor }}</span>
+      {%- endif -%}
+      <h1 class="lc-pdp-header__title">{{ product.title }}</h1>
+      {%- if product.type != blank -%}
+        <span class="lc-pdp-header__type">{{ product.type }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<div class="{{settings.product_width_section}} lc-pdp-body">
   <div class="section-width{%if settings.product_width_content and settings.product_width_section == 'w-100'%} container{%else%} w-100{%endif%}">
     <div class="product-page product-inner psgl-ly-{{section.settings.layout}} pid_{{product.id}}{% if template.suffix == 'mix-a-match' %} product-mix-a-match{%endif%}" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" data-enable-ajax-cart="{{settings.ajax_cart}}" data-product-id="{{ product.id }}" data-use-thumb="{{settings.use_thumb}}" data-use-zoom="{{settings.use_zoom}}">
-      {%-render 'kt_breadcrumb', use_prd_nav: true -%}
+      {{- '' -}}<!-- breadcrumb replaced by lc-pdp-header above -->
       <div class="product-images-info row justify-content-between">
       	<div class="product-images col-12 col-lg-6">
           <div class="product-detail-image mb-2">
@@ -237,6 +263,60 @@
                 </div>
               </div>
             {%- endform -%}
+
+            <!-- LABCON: Request Quote CTA -->
+            <div class="lc-pdp-cta">
+              <a href="/pages/contact" class="lc-pdp-quote-btn">
+                Request Quote <span aria-hidden="true">→</span>
+              </a>
+              {%- if current_variant.sku != blank -%}
+              <p class="lc-pdp-sku">SKU: <strong>{{ current_variant.sku }}</strong></p>
+              {%- endif -%}
+            </div>
+
+            <!-- LABCON: Metafields -->
+            {%- liquid
+              assign mf_manufacturer = product.metafields.custom.manufacturer.value
+              assign mf_grade        = product.metafields.custom.grade.value
+              assign mf_cert         = product.metafields.custom.certification.value
+              assign mf_industry     = product.metafields.custom.industry.value
+              assign mf_application  = product.metafields.custom.application.value
+              assign mf_storage      = product.metafields.custom.storage_condition.value
+              assign mf_lead         = product.metafields.custom.lead_time.value
+              assign has_meta = false
+              if mf_manufacturer or mf_grade or mf_cert or mf_industry or mf_application or mf_storage or mf_lead
+                assign has_meta = true
+              endif
+            -%}
+            {%- if has_meta -%}
+            <div class="lc-pdp-meta">
+              <h3 class="lc-pdp-meta__title">Product Details</h3>
+              <table class="lc-pdp-meta__table">
+                {%- if mf_manufacturer -%}
+                <tr><th>Manufacturer</th><td>{{ mf_manufacturer }}</td></tr>
+                {%- endif -%}
+                {%- if mf_grade -%}
+                <tr><th>Grade</th><td>{{ mf_grade }}</td></tr>
+                {%- endif -%}
+                {%- if mf_cert -%}
+                <tr><th>Certification</th><td>{{ mf_cert }}</td></tr>
+                {%- endif -%}
+                {%- if mf_industry -%}
+                <tr><th>Industry</th><td>{{ mf_industry }}</td></tr>
+                {%- endif -%}
+                {%- if mf_application -%}
+                <tr><th>Application</th><td>{{ mf_application }}</td></tr>
+                {%- endif -%}
+                {%- if mf_storage -%}
+                <tr><th>Storage</th><td>{{ mf_storage }}</td></tr>
+                {%- endif -%}
+                {%- if mf_lead -%}
+                <tr><th>Lead Time</th><td>{{ mf_lead }}</td></tr>
+                {%- endif -%}
+              </table>
+            </div>
+            {%- endif -%}
+
             {%-if settings.use_store_avai-%}<div class="psgl__store-avai-container mb-1" data-store-avai-container data-product-title="{{ product.title | escape }}" data-has-only-default-variant="{{ product.has_only_default_variant }}" data-base-url="{{ shop.url }}{{ routes.root_url }}"></div>{%-endif-%}
             {%-if settings.use_notify_onavai-%}<div class="lazyload lazypreload" data-include="{{product.url}}?variant={{current_variant.id}}&view=notify"></div>{%- endif -%}
             <div class="shipping_rates border rounded mb-1"{%unless settings.use_shipp_rates_cus%} style="display: none"{%endunless%}>
