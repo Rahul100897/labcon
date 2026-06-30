@@ -487,8 +487,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   margin-top: 4px;
 }
 
-/* Remove Molla's default top border between header and content */
-.main-container { margin-top: 0 !important; }
+/* Space between dark header and content area */
+.main-container { margin-top: 0 !important; padding-top: 28px !important; background: #f7f8f7 !important; }
 
 /* --- Filter Sidebar base --- */
 .kt_sidebar .kt--filter {
@@ -599,6 +599,46 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   .lc-coll-header__title { font-size: 22px; }
   .lc-coll-header__body { flex-direction: column; align-items: flex-start; gap: 12px; }
   .lc-coll-header__count { font-size: 20px; }
+}
+
+/* --- Filter expand / collapse behaviour ---
+   Molla JS toggles .show class on .kt--filter-gr-i on heading click.
+   show class = expanded; no show class = collapsed.
+   All groups start with .show (toggle:"show" in template) = all open by default. */
+.kt_sidebar .kt--filter-gr-i .kt--filter-gr-i_ul { display: none; }
+.kt_sidebar .kt--filter-gr-i.show .kt--filter-gr-i_ul { display: block !important; }
+.kt_sidebar .kt--filter-gr-i.unshowAny .kt--filter-gr-i_ul { display: block !important; }
+
+/* --- Chevron arrow on filter headings --- */
+.kt_sidebar .layered_subtitle_heading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  cursor: pointer !important;
+}
+.kt_sidebar .layered_subtitle_heading .ico {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.kt_sidebar .layered_subtitle_heading .ico::after {
+  content: '' !important;
+  display: block !important;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #888;
+  border-bottom: 2px solid #888;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+  margin-top: -3px;
+}
+/* Arrow rotates up when group is expanded (.show) */
+.kt_sidebar .kt--filter-gr-i.show .layered_subtitle_heading .ico::after {
+  transform: rotate(-135deg) !important;
+  margin-top: 3px;
 }
 
 /* --- Hide price filter (B2B — no public pricing) --- */

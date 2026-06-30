@@ -20,7 +20,7 @@
             "key": "Availability",
             "block_style": "1",
             "use_split": false,
-            "always_show": true
+            "always_show": false
           }
         },
         "filter-brand": {
