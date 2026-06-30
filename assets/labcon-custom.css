@@ -601,27 +601,26 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   justify-content: center !important;
   gap: 7px !important;
   width: 100% !important;
-  background: transparent !important;
-  color: var(--lc-dark) !important;
+  background: var(--lc-red) !important;
+  color: #fff !important;
   font-size: 12px !important;
   font-weight: 700 !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
-  padding: 9px 14px !important;
+  padding: 10px 14px !important;
   border-radius: 2px !important;
-  border: 1.5px solid var(--lc-dark) !important;
+  border: none !important;
   text-decoration: none !important;
   text-align: center !important;
-  transition: background 0.18s, color 0.18s, border-color 0.18s !important;
+  transition: background 0.18s !important;
 }
 .lc-quote-btn::after {
   content: '→';
   font-size: 13px;
 }
 .lc-quote-btn:hover {
-  background: var(--lc-red) !important;
+  background: var(--lc-red-dark) !important;
   color: #fff !important;
-  border-color: var(--lc-red) !important;
   text-decoration: none !important;
 }
 
