@@ -512,16 +512,22 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 
 /* --- Product Card (B2B style) --- */
 
-/* Always show the CTA wrapper — Molla hides it by default and shows on hover */
+/* Fix .product-cta-wrapper:
+   Molla sets position:absolute + order:-1 (puts it first in flex) + hidden by default.
+   We need: static positioning, natural order (after SKU), always visible. */
 .collection-products .product-cta-wrapper {
-  display: block !important;
+  position: static !important;
+  order: 10 !important;        /* push below vendor/title/SKU in flex column */
   opacity: 1 !important;
   visibility: visible !important;
-  position: static !important;
   transform: none !important;
   pointer-events: auto !important;
+  display: block !important;
+  background: transparent !important;
+  z-index: auto !important;
   height: auto !important;
   max-height: none !important;
+  width: 100% !important;
 }
 
 /* Hide price on all collection cards */
@@ -543,8 +549,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 }
 .collection-products .product-default:hover,
 .collection-products .grid-item > .product:hover {
-  border-color: var(--lc-red) !important;
-  box-shadow: 0 4px 24px rgba(229,61,28,0.09) !important;
+  border-color: #d0d0d0 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07) !important;
 }
 
 /* Image area */
