@@ -934,10 +934,10 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 }
 
 /* Related products section — title + bottom spacing */
-.kt_related-products .section-title,
-.kt_recently-viewed-products .section-title { font-size: 18px !important; font-weight: 700 !important; color: var(--lc-dark) !important; }
-.kt_related-products { padding-bottom: 56px !important; }
-.kt_recently-viewed-products { padding-bottom: 40px !important; }
+#shopify-section-kt_related-products .section-title,
+#shopify-section-kt_recently-viewed-products .section-title { font-size: 18px !important; font-weight: 700 !important; color: var(--lc-dark) !important; }
+#shopify-section-kt_related-products { padding-bottom: 60px !important; }
+#shopify-section-kt_recently-viewed-products { padding-bottom: 40px !important; }
 
 /* Hide sticky Add to Cart bar — not in B2B requirements */
 .psgl-sticky-bar,
