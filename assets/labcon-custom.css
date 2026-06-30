@@ -892,6 +892,52 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 }
 .tab-details-product .tab-content { padding: 28px 0 !important; }
 
+/* Related / recently viewed product cards — same rules as collection-products */
+.products-card-grid .product-default,
+.products-card-grid .grid-item > .product,
+.kt_recently-viewed-products .product-default,
+.kt_recently-viewed-products .grid-item > .product {
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 4px !important;
+  background: #fff !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+.products-card-grid .product-default:hover,
+.products-card-grid .grid-item > .product:hover,
+.kt_recently-viewed-products .product-default:hover {
+  border-color: #d0d0d0 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07) !important;
+}
+/* Hide "New!" badges in related/recently-viewed */
+.products-card-grid .onnew,
+.kt_recently-viewed-products .onnew { display: none !important; }
+
+/* Make CTA always visible in related products cards */
+.products-card-grid .product-cta-wrapper,
+.kt_recently-viewed-products .product-cta-wrapper {
+  position: static !important;
+  order: 10 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  display: block !important;
+  background: transparent !important;
+  height: auto !important;
+  width: 100% !important;
+}
+
 /* Related products section */
-.section-related-products .section-title,
-.kt_related-products .section-title { font-size: 18px !important; font-weight: 700 !important; color: var(--lc-dark) !important; }
+.kt_related-products .section-title,
+.kt_recently-viewed-products .section-title { font-size: 18px !important; font-weight: 700 !important; color: var(--lc-dark) !important; }
+
+/* Hide sticky Add to Cart bar — not in B2B requirements */
+.psgl-sticky-bar,
+.sticky-atc,
+#stickyBar,
+.kt-sticky-atc,
+[class*="stickyATC"],
+[id*="stickyATC"] { display: none !important; }
