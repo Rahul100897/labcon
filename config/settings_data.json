@@ -701,6 +701,7 @@
         "blocks": {
           "1570844648685": {
             "type": "collection_banner",
+            "disabled": true,
             "settings": {
               "off_section": false,
               "off_mobile": false,
@@ -717,7 +718,7 @@
               "section_padding": "4.5rem 0",
               "section_bg": "",
               "section_bg_op": 0.5,
-              "image": "shopify://shop_images/page-header-bg.jpg"
+              "link_banner": ""
             }
           },
           "1571727555274": {
@@ -734,7 +735,7 @@
               "section_padding": "4.6rem 0 5rem",
               "section_bg": "",
               "section_bg_op": 0.5,
-              "image": "shopify://shop_images/page-header-bg.jpg"
+              "link_banner": ""
             }
           },
           "1571926336502": {
@@ -755,7 +756,7 @@
               "section_padding": "4.6rem 0 5rem",
               "section_bg": "",
               "section_bg_op": 0.5,
-              "image": "shopify://shop_images/page-header-bg.jpg"
+              "link_banner": ""
             }
           },
           "1572080254452": {
@@ -776,7 +777,7 @@
               "section_padding": "4.6rem 0 5rem",
               "section_bg": "",
               "section_bg_op": 0.5,
-              "image": "shopify://shop_images/page-header-bg.jpg"
+              "link_banner": ""
             }
           },
           "1572235272285": {
@@ -793,7 +794,7 @@
               "section_padding": "4.6rem 0 5rem",
               "section_bg": "",
               "section_bg_op": 0.5,
-              "image": "shopify://shop_images/page-header-bg.jpg"
+              "link_banner": ""
             }
           }
         },
