@@ -490,70 +490,16 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
 /* Remove Molla's default top border between header and content */
 .main-container { margin-top: 0 !important; }
 
-/* --- Filter Sidebar --- */
+/* --- Filter Sidebar base --- */
 .kt_sidebar .kt--filter {
   border: none !important;
   background: transparent !important;
 }
-
-.kt_sidebar .filter-clean {
-  border-bottom: 1px solid #ebebeb;
-  padding-bottom: 14px;
-  margin-bottom: 16px;
-}
-.kt_sidebar .filter-clean .head label {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--lc-dark);
-}
-.kt_sidebar .filter-clean .sidebar-filter-clear {
-  font-size: 12px;
-  color: var(--lc-red);
-  text-decoration: none;
-}
-.kt_sidebar .filter-clean .sidebar-filter-clear:hover { text-decoration: underline; }
-
-/* Filter group heading */
-.kt_sidebar .layered_subtitle_heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
-  cursor: pointer;
-  border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 0;
-}
-.kt_sidebar .layered_subtitle {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--lc-dark);
-}
 .kt_sidebar .kt--filter-gr-i {
-  border-bottom: 1px solid #f0f0f0;
-  padding: 0;
+  border: none !important;
+  padding: 0 !important;
   margin-bottom: 0 !important;
 }
-.kt_sidebar .kt--filter-gr-i_ul {
-  padding: 10px 0 14px !important;
-  max-height: 220px;
-  overflow-y: auto;
-}
-
-/* Filter checkboxes */
-.kt_sidebar .custom-control-label {
-  font-size: 14px;
-  color: #3a3a3a;
-  cursor: pointer;
-  padding-left: 8px;
-  line-height: 1.4;
-}
-.kt_sidebar .custom-control-label:hover { color: var(--lc-red); }
-.kt_sidebar .custom-control-input:checked ~ .custom-control-label { color: var(--lc-red); font-weight: 600; }
-.kt_sidebar .custom-control-input:checked ~ .custom-control-label::before { background: var(--lc-red) !important; border-color: var(--lc-red) !important; }
 
 /* Active filter chips */
 .kt--fl-sl-i .remove_kt--filter-sl {
@@ -563,21 +509,6 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   border-radius: 2px;
   padding: 3px 8px;
 }
-
-/* --- Sort / Toolbar Bar --- */
-.toolbar-products {
-  border: 1px solid #ebebeb;
-  border-radius: 3px;
-  background: #fff;
-  padding: 10px 16px !important;
-  margin-bottom: 20px !important;
-}
-.toolbar-products .result-count {
-  font-size: 13px;
-  color: var(--lc-grey-mid);
-}
-.toolbar-products .sorter .label { font-size: 13px; color: var(--lc-grey-mid); }
-.toolbar-products .kt--drop-title { font-size: 13px; font-weight: 600; color: var(--lc-dark); }
 
 /* --- Product Card (B2B style) --- */
 
@@ -669,3 +600,55 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--lc-font); }
   .lc-coll-header__body { flex-direction: column; align-items: flex-start; gap: 12px; }
   .lc-coll-header__count { font-size: 20px; }
 }
+
+/* --- Hide price filter (B2B — no public pricing) --- */
+.widget_flt_slider { display: none !important; }
+
+/* --- Hide "New!" badge on collection cards --- */
+.collection-products .onnew { display: none !important; }
+
+/* --- Toolbar (sort bar) --- */
+.shop-top {
+  border: 1px solid #ebebeb !important;
+  border-radius: 3px !important;
+  background: #fff !important;
+  padding: 10px 16px !important;
+  margin-bottom: 20px !important;
+}
+.shop-top .result-count { font-size: 13px; color: var(--lc-grey-mid); }
+.shop-top .sorter .kt--drop-title { font-size: 13px; font-weight: 600; color: var(--lc-dark); }
+
+/* --- Sidebar filter-clean header ("FILTER: / Clear All") --- */
+.kt_sidebar .filter-clean .head { padding: 0 0 12px 0; }
+.kt_sidebar .filter-clean .head label {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--lc-dark) !important;
+  margin: 0 !important;
+}
+.kt_sidebar .filter-clean .sidebar-filter-clear {
+  font-size: 12px !important;
+  color: var(--lc-red) !important;
+  text-decoration: none !important;
+}
+.kt_sidebar .filter-clean .sidebar-filter-clear:hover { text-decoration: underline !important; }
+
+/* Increase specificity for filter group headings */
+.kt_sidebar .kt--filter .kt--filter-gr-i .layered_subtitle_heading {
+  border-top: 1px solid #ebebeb !important;
+  border-bottom: none !important;
+  padding: 14px 0 !important;
+  cursor: pointer !important;
+}
+.kt_sidebar .kt--filter .kt--filter-gr-i .layered_subtitle {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--lc-dark) !important;
+}
+.kt_sidebar .kt--filter .kt--filter-gr-i_ul { padding: 0 0 14px !important; }
+.kt_sidebar .kt--filter .custom-control-label { font-size: 14px !important; color: #3a3a3a !important; }
+.kt_sidebar .kt--filter .custom-control-label:hover { color: var(--lc-red) !important; }
